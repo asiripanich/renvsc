@@ -4,7 +4,7 @@
 \name{renvsc-package}
 \alias{renvsc}
 \alias{renvsc-package}
-\title{renvsc: [renv::init] with extra steps to maintain vscode-R features}
+\title{renvsc: [renv::init] with Extra Steps to Maintain Vscode-R Features}
 \description{
 This function is a wrapper of [renv::init] which adds 
  some extra steps to maintain vscode-R's sessionWatcher and 
