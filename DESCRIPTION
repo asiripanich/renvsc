@@ -4,7 +4,8 @@ Version: 0.0.1
 Authors@R: 
     person(given = "Amarin",
            family = "Siripanich",
-           role = c("aut", "cre"))
+           role = c("aut", "cre"), 
+           email = "email@email.com")
 Description: This function is a wrapper of [renv::init] which adds 
  some extra steps to maintain vscode-R's sessionWatcher and 
  'R: Launch RStudio Addin' features after an [renv] environment gets

@@ -30,7 +30,7 @@ init <- function(project = NULL, ..., profile = NULL, settings = NULL,
 add_radian_deps <- function() {
   deps <- c("languageserver", "jsonlite", "rlang")
   for (dep in deps) {
-    cat("library(", dep, ")\n",
+    cat("library(", dep, ") #added by `renvsc`\n",
       file = here::here("dependencies.R"),
       append = TRUE,
       sep = ""
@@ -39,8 +39,12 @@ add_radian_deps <- function() {
 }
 
 add_rstudioapis <- function() {
-  cat("library(rstudioapi)\n",
+  cat("library(rstudioapi) #added by `renvsc`\n",
     file = here::here("dependencies.R"),
+    append = TRUE
+  )
+  cat("options(vsc.rstudioapi = TRUE) #added by `renvsc`\n",
+    file = here::here(".Rprofile"),
     append = TRUE
   )
 }

@@ -12,7 +12,7 @@ This function is a wrapper of [renv::init] which adds
  activated.
 }
 \author{
-\strong{Maintainer}: Amarin Siripanich
+\strong{Maintainer}: Amarin Siripanich \email{email@email.com}
 
 }
 \keyword{internal}
