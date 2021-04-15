@@ -1,0 +1,18 @@
+Package: renvsc
+Title: [renv::init] with extra steps to maintain vscode-R features
+Version: 0.0.1
+Authors@R: 
+    person(given = "Amarin",
+           family = "Siripanich",
+           role = c("aut", "cre"))
+Description: This function is a wrapper of [renv::init] which adds 
+ some extra steps to maintain vscode-R's sessionWatcher and 
+ 'R: Launch RStudio Addin' features after an [renv] environment gets
+ activated.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    renv
