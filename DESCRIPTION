@@ -1,5 +1,5 @@
 Package: renvsc
-Title: [renv::init] with extra steps to maintain vscode-R features
+Title: [renv::init] with Extra Steps to Maintain Vscode-R Features
 Version: 0.0.1
 Authors@R: 
     person(given = "Amarin",
@@ -16,4 +16,5 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
-    renv
+    renv,
+    here
