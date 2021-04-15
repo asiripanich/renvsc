@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # renvsc
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/asiripanich/renvsc/workflows/R-CMD-check/badge.svg)](https://github.com/asiripanich/renvsc/actions)
 <!-- badges: end -->
 
 The goal of renvsc is to enable using the renv package in VSCode without breaking the nice features of the vscode-R extension.
