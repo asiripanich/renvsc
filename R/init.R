@@ -14,7 +14,6 @@
 #' `options(vsc.rstudioapi = TRUE)` to `.Rprofile` created by [renv::init].
 #'
 #' @inheritParams renv::init
-#' @importFrom renv init
 #' @export
 #' 
 #' @examples
@@ -22,33 +21,38 @@
 #' if (FALSE) init()
 init <- function(project = NULL, ..., profile = NULL, settings = NULL,
                  bare = FALSE, force = FALSE, restart = interactive()) {
-  add_radian_deps()
-  add_rstudioapis()
+
+  if (is.null(project)) {
+    project <- getwd()
+  }
+
+  add_radian_deps(project = project)
+  add_rstudioapis(project = project)
 
   renv::init(
-    project = NULL, ..., profile = NULL, settings = NULL,
-    bare = FALSE, force = FALSE, restart = interactive()
+    project = project, ..., profile = profile, settings = settings,
+    bare = bare, force = force, restart = restart
   )
 }
 
-add_radian_deps <- function() {
+add_radian_deps <- function(project) {
   deps <- c("languageserver", "jsonlite", "rlang")
   for (dep in deps) {
     cat("library(", dep, ") #added by `renvsc`\n",
-      file = here::here("dependencies.R"),
+      file = fs::path(project, "dependencies.R"),
       append = TRUE,
       sep = ""
     )
   }
 }
 
-add_rstudioapis <- function() {
+add_rstudioapis <- function(project) {
   cat("library(rstudioapi) #added by `renvsc`\n",
-    file = here::here("dependencies.R"),
+    file = fs::path(project, "dependencies.R"),
     append = TRUE
   )
   cat("options(vsc.rstudioapi = TRUE) #added by `renvsc`\n",
-    file = here::here(".Rprofile"),
+    file = fs::path(project, ".Rprofile"),
     append = TRUE
   )
 }

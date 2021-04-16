@@ -1,5 +1,6 @@
 #' @keywords internal
-#' @import here
+#' @importFrom renv init
+#' @importFrom fs path
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage
