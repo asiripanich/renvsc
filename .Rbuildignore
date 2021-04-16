@@ -3,3 +3,6 @@
 ^pkgdown$
 ^\.github$
 ^LICENSE\.md$
+^README\.Rmd$
+^.*\.Rproj$
+^\.Rproj\.user$
