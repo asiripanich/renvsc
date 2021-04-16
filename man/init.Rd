@@ -50,3 +50,7 @@ Step 1: Create \code{dependencies.R} at the path that is determined by
 Step2: Add \code{library(rstudioapi)} to \code{dependencies.R}, and then add
 \code{options(vsc.rstudioapi = TRUE)} to \code{.Rprofile} created by \link[renv:init]{renv::init}.
 }
+\examples{
+
+if (FALSE) init()
+}

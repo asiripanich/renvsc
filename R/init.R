@@ -16,6 +16,10 @@
 #' @inheritParams renv::init
 #' @importFrom renv init
 #' @export
+#' 
+#' @examples
+#' 
+#' if (FALSE) init()
 init <- function(project = NULL, ..., profile = NULL, settings = NULL,
                  bare = FALSE, force = FALSE, restart = interactive()) {
   add_radian_deps()
