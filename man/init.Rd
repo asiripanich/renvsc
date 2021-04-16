@@ -45,7 +45,7 @@ to maintain vscode-R's sessionWatcher and 'R: Launch RStudio Addin'
 features after an \link{renv} environment gets activated.
 
 Step 1: Create \code{dependencies.R} at the path that is determined by
-\link[here:here]{here::here} and add \verb{library(languageserver); library(jsonlite); library(rlang)} to the file.
+\code{\link[=getwd]{getwd()}}, if not specifically provided, and add \verb{library(languageserver); library(jsonlite); library(rlang)} to the file.
 
 Step2: Add \code{library(rstudioapi)} to \code{dependencies.R}, and then add
 \code{options(vsc.rstudioapi = TRUE)} to \code{.Rprofile} created by \link[renv:init]{renv::init}.

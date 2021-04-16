@@ -7,7 +7,7 @@
 #' features after an [renv] environment gets activated.
 #'
 #' Step 1: Create `dependencies.R` at the path that is determined by
-#' [here::here] and add `library(languageserver); library(jsonlite);
+#' [getwd()], if not specifically provided, and add `library(languageserver); library(jsonlite);
 #' library(rlang)` to the file.
 #'
 #' Step2: Add `library(rstudioapi)` to `dependencies.R`, and then add
