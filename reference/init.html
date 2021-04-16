@@ -123,7 +123,7 @@ to maintain vscode-R's sessionWatcher and 'R: Launch RStudio Addin'
 features after an renv environment gets activated.</p>
 <p>Step 1: Create <code>dependencies.R</code> at the path that is determined by
 <a href='https://here.r-lib.org//reference/here.html'>here::here</a> and add <code>library(languageserver); library(jsonlite); library(rlang)</code> to the file.</p>
-<p>Step2: Add <code><a href='https://rdrr.io/r/base/library.html'>library(rstudioapi)</a></code> to <code>dependencies.R</code>, and then add
+<p>Step2: Add <code><a href='https://github.com/rstudio/rstudioapi'>library(rstudioapi)</a></code> to <code>dependencies.R</code>, and then add
 <code><a href='https://rdrr.io/r/base/options.html'>options(vsc.rstudioapi = TRUE)</a></code> to <code>.Rprofile</code> created by <a href='https://rstudio.github.io/renv//reference/init.html'>renv::init</a>.</p>
     </div>
 
@@ -181,6 +181,10 @@ option is set by the frontend embedding <span style="R">R</span>.</p></td>
     </table>
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='fu'>init</span><span class='op'>(</span><span class='op'>)</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

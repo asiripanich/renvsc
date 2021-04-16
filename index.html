@@ -74,7 +74,7 @@
 <p><code><a href="reference/init.html">renvsc::init()</a></code> adds some extra steps to <code><a href="https://rstudio.github.io/renv//reference/init.html">renv::init()</a></code> to maintain vscode-R’s sessionWatcher and ‘R: Launch RStudio Addin’ features after an <br><span class="math display"><em>r</em><em>e</em><em>n</em><em>v</em></span><br> environment gets activated.</p>
 <ul>
 <li>Step 1: Create <code>dependencies.R</code> at the path that is determined by <code><a href="https://here.r-lib.org//reference/here.html">here::here()</a></code> and add <code><a href="https://rdrr.io/r/base/library.html">library(languageserver); library(jsonlite); library(rlang)</a></code> to the file.</li>
-<li>Step2: Add <code><a href="https://rdrr.io/r/base/library.html">library(rstudioapi)</a></code> to <code>dependencies.R</code>, and then add <code><a href="https://rdrr.io/r/base/options.html">options(vsc.rstudioapi = TRUE)</a></code> to <code>.Rprofile</code> created by <code><a href="https://rstudio.github.io/renv//reference/init.html">renv::init()</a></code>.</li>
+<li>Step2: Add <code><a href="https://github.com/rstudio/rstudioapi">library(rstudioapi)</a></code> to <code>dependencies.R</code>, and then add <code><a href="https://rdrr.io/r/base/options.html">options(vsc.rstudioapi = TRUE)</a></code> to <code>.Rprofile</code> created by <code><a href="https://rstudio.github.io/renv//reference/init.html">renv::init()</a></code>.</li>
 </ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
