@@ -15,19 +15,33 @@
 #'
 #' @inheritParams renv::init
 #' @export
-#' 
+#'
 #' @examples
-#' 
+#'
 #' if (FALSE) init()
 init <- function(project = NULL, ..., profile = NULL, settings = NULL,
                  bare = FALSE, force = FALSE, restart = interactive()) {
-
   if (is.null(project)) {
     project <- getwd()
   }
 
-  add_radian_deps(project = project)
-  add_rstudioapis(project = project)
+  pkgs <- c("rstudioapi", "languageserver", "jsonlite", "rlang", "httpgd")
+  r_options <-
+    c(
+      "options(vsc.rstudioapi = TRUE)",
+      "if (interactive() && Sys.getenv('TERM_PROGRAM') == 'vscode') {
+  if ('httpgd' %in% .packages(all.available = TRUE)) {
+    options(vsc.plot = FALSE)
+    options(device = function(...) {
+      httpgd::hgd(silent = TRUE)
+      .vsc.browser(httpgd::hgd_url(), viewer = 'Beside')
+    })
+  }
+}"
+    )
+
+  add_deps(pkgs, project = project)
+  add_rprofile(r_options, project = project)
 
   renv::init(
     project = project, ..., profile = profile, settings = settings,
@@ -35,10 +49,9 @@ init <- function(project = NULL, ..., profile = NULL, settings = NULL,
   )
 }
 
-add_radian_deps <- function(project) {
-  deps <- c("languageserver", "jsonlite", "rlang")
-  for (dep in deps) {
-    cat("library(", dep, ") #added by `renvsc`\n",
+add_deps <- function(pkgs, project) {
+  for (pkg in pkgs) {
+    cat("library(", pkg, ") #added by `renvsc`\n",
       file = fs::path(project, "dependencies.R"),
       append = TRUE,
       sep = ""
@@ -46,13 +59,12 @@ add_radian_deps <- function(project) {
   }
 }
 
-add_rstudioapis <- function(project) {
-  cat("library(rstudioapi) #added by `renvsc`\n",
-    file = fs::path(project, "dependencies.R"),
-    append = TRUE
-  )
-  cat("options(vsc.rstudioapi = TRUE) #added by `renvsc`\n",
-    file = fs::path(project, ".Rprofile"),
-    append = TRUE
-  )
+add_rprofile <- function(r_options, project) {
+  for (r_option in r_options) {
+    r_option <- paste(r_option, "#added by `renvsc`\n")
+    cat(r_option,
+      file = fs::path(project, ".Rprofile"),
+      append = TRUE
+    )
+  }
 }
